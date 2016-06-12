@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/Button.qml</file>
+        <file>assets/home.qml</file>
+        <file>assets/main.qml</file>
+        <file>assets/postbox.qml</file>
+        <file>assets/StationDelegate.qml</file>
+        <file>assets/uv_busy.gif</file>
+    </qresource>
+</RCC>
