@@ -211,6 +211,7 @@ void UVFurniture::serviceScanDone()
             this, SLOT(confirmedDescriptorWrite(QLowEnergyDescriptor,QByteArray)));
 
     m_service->discoverDetails();
+    setMessage("Loading service information...");
     //! [Filter UVFurniture service 2]
 }
 
@@ -243,6 +244,8 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
         m_control->disconnectFromDevice();
         delete m_service;
         m_service = 0;
+
+        setMessage("Loaded");
 
         break;
     }
