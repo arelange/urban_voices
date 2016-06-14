@@ -29,6 +29,13 @@ import Calendar 1.0
 Rectangle {
     id: screenPostbox
     color: "#F8F8F8"
+    property string message: uvFurniture.message
+    onMessageChanged: {
+        if (uvFurniture.message == "Loaded")
+            loading.visible = false;
+        else
+            loading.visible = true;
+    }
 
     Button {
         id: postboxTitle
@@ -140,6 +147,40 @@ Rectangle {
         anchors.bottom: menu.top
         width: parent.width
     }
+
+    Rectangle {
+        id: loading
+        width: parent.width
+        anchors.top: postboxTitle.bottom
+        anchors.bottom: menu.top
+        visible: true//false
+        color: "#F8F8F8"
+        z: 100
+
+        Rectangle {
+            id: inside
+            anchors.centerIn: parent
+            AnimatedImage {
+                id: background
+
+                width:200
+                height:200
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                source: "uv_busy.gif"
+                fillMode: Image.PreserveAspectFit
+            }
+
+            Text {
+                id: infotext
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: background.bottom
+                text: uvFurniture.message
+                color: "#8F8F8F"
+            }
+        }
+    }
+
     Button {
         id: menu
         buttonWidth: parent.width
