@@ -143,14 +143,6 @@ Rectangle {
                 text: modelData.deviceName
                 anchors.top: parent.top
                 anchors.topMargin: 5
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: "#F8F8F8"
-            }
-
-            Text {
-                id: deviceAddress
-                font.pixelSize: 30
-                text: modelData.deviceAddress
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
