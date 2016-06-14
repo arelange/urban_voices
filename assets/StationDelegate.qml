@@ -152,5 +152,16 @@ Item {
         zoomLevel: map.maximumZoomLevel - 1
 
         gesture.enabled: true
+
+        MapCircle {
+            id: mapPoint
+            radius: 1000
+            color: "#F0A000"
+            border.color: "#301000"
+            border.width: 2
+            smooth: true
+            opacity: 0.5
+            center:contact.geo
+        }
     }
 }
