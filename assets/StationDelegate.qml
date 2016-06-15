@@ -31,10 +31,17 @@ import Contact 1.0
 Item {
     id: stationColumn
     width: parent.width
+    property alias contact: contact
 
     Contact {
         id: contact
         vcard: uvFurniture.office
+        onGeoChanged: {
+            routeQuery.clearWaypoints();
+            routeQuery.addWaypoint(QtPositioning.coordinate(43.61508,7.07130));
+            routeQuery.addWaypoint(QtPositioning.coordinate(43.61366,7.07981));
+            routeQuery.addWaypoint(contact.geo);
+        }
     }
 
     Address {
@@ -150,7 +157,7 @@ Item {
         plugin: mapPlugin;
 
         center: contact.geo
-        zoomLevel: map.maximumZoomLevel - 1
+        zoomLevel: map.maximumZoomLevel - 2
 
         gesture.enabled: true
 
@@ -173,6 +180,33 @@ Item {
                 id: officeLogo
                 source: contact.logo
                 sourceSize.width: 100
+            }
+        }
+
+        MapQuickItem {
+            id: startPoint
+            coordinate: QtPositioning.coordinate(43.61508,7.07130)
+            sourceItem: Image {
+                id: sophiaconfLogo
+                source: "sophiaconf.png"
+            }
+        }
+
+        MapItemView {
+            model: RouteModel {
+                id: routeModel
+                plugin: mapPlugin
+                autoUpdate: true
+                query: RouteQuery{
+                    id: routeQuery
+                }
+            }
+            delegate: MapRoute {
+                route: routeData
+                line.color: "red"
+                line.width: 5
+                smooth: true
+                opacity: 0.8
             }
         }
     }

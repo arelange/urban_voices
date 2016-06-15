@@ -9,5 +9,6 @@
         <file>assets/tags/recycling.qml</file>
         <file>assets/tags/bus_station.qml</file>
         <file>assets/tags/hackerspace.qml</file>
+        <file>assets/sophiaconf.png</file>
     </qresource>
 </RCC>

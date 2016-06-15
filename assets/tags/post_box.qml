@@ -32,7 +32,7 @@ Rectangle {
     color: "#F8F8F8"
     property string message: uvFurniture.message
     onMessageChanged: {
-        if (uvFurniture.message == "Loaded")
+        if (uvFurniture.message == "Loaded" || uvFurniture.message == "Urban Voices service disconnected")
             loading.visible = false;
         else
             loading.visible = true;
