@@ -185,6 +185,7 @@ Item {
 
         MapQuickItem {
             id: startPoint
+            anchorPoint: Qt.point(sophiaconfLogo.width/2, sophiaconfLogo.height/2)
             coordinate: QtPositioning.coordinate(43.61508,7.07130)
             sourceItem: Image {
                 id: sophiaconfLogo
