@@ -132,7 +132,7 @@ Rectangle {
             id: mouseUrlArea
             anchors.fill: parent
             onClicked: {
-                lastevent.value = Qt.formatDateTime(new Date(), "yyyyMMdd'T'HHmmss'Z'");
+                uvFurniture.lastEvent = Qt.formatDateTime(new Date(), "yyyyMMdd'T'HHmmss'Z'");
             }
         }
     }

@@ -103,6 +103,8 @@ private slots:
 
     //QLowEnergyService
     void serviceStateChanged(QLowEnergyService::ServiceState s);
+    void confirmedCharacteristicWrite(const QLowEnergyCharacteristic &c,
+                              const QByteArray &value);
     void confirmedDescriptorWrite(const QLowEnergyDescriptor &d,
                               const QByteArray &value);
     void serviceError(QLowEnergyService::ServiceError e);
@@ -123,6 +125,7 @@ private:
     QList<QObject*> m_devices;
     QString m_info;
     bool foundUVFurnitureService;
+    bool serviceUpdateRequested;
     QLowEnergyController *m_control;
     QLowEnergyService *m_service;
     QString m_timetable;

@@ -46,7 +46,7 @@
 
 UVFurniture::UVFurniture():
     m_currentDevice(QBluetoothDeviceInfo()), foundUVFurnitureService(false),
-    m_control(0), m_service(0)
+    serviceUpdateRequested(false), m_control(0), m_service(0)
 {
     //! [devicediscovery-1]
     m_deviceDiscoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
@@ -207,6 +207,8 @@ void UVFurniture::serviceScanDone()
 
     connect(m_service, SIGNAL(stateChanged(QLowEnergyService::ServiceState)),
             this, SLOT(serviceStateChanged(QLowEnergyService::ServiceState)));
+    connect(m_service, SIGNAL(characteristicWritten(QLowEnergyCharacteristic,QByteArray)),
+            this, SLOT(confirmedCharacteristicWrite(QLowEnergyCharacteristic,QByteArray)));
     connect(m_service, SIGNAL(descriptorWritten(QLowEnergyDescriptor,QByteArray)),
             this, SLOT(confirmedDescriptorWrite(QLowEnergyDescriptor,QByteArray)));
 
@@ -230,34 +232,42 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
     switch (s) {
     case QLowEnergyService::ServiceDiscovered:
     {
-        m_timetable = QString(m_service->characteristic(
-                        QBluetoothUuid(QString("86f318ec-290d-6396-bc4a-3e9917495189"))).value());
-        m_lastevent = QString(m_service->characteristic(
-                    QBluetoothUuid(QString("3f33b12f-d4ee-e0b4-c345-f9cf5839f660"))).value());
-        m_office = QString(m_service->characteristic(
-                    QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
-        m_description = QString(m_service->characteristic(
-                    QBluetoothUuid(QString("18afb6a7-5bb1-848b-c74b-4d874ac326fc"))).value());
+        if (serviceUpdateRequested == true) {
+            setMessage("Updating service...");
+            m_service->writeCharacteristic(m_service->characteristic(
+                                               QBluetoothUuid(QString("3f33b12f-d4ee-e0b4-c345-f9cf5839f660"))),
+                                           m_lastevent.toLatin1());
+        }
+        else {
+            m_timetable = QString(m_service->characteristic(
+                            QBluetoothUuid(QString("86f318ec-290d-6396-bc4a-3e9917495189"))).value());
+            m_lastevent = QString(m_service->characteristic(
+                        QBluetoothUuid(QString("3f33b12f-d4ee-e0b4-c345-f9cf5839f660"))).value());
+            m_office = QString(m_service->characteristic(
+                        QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
+            m_description = QString(m_service->characteristic(
+                        QBluetoothUuid(QString("18afb6a7-5bb1-848b-c74b-4d874ac326fc"))).value());
 
         // fill in tags
-        m_tags.clear();
-        QStringList tagPairs = m_description.split(';');
-        Q_FOREACH (QString tagString, tagPairs) {
-            QStringList tagPair = tagString.split('=');
-            if (tagPair.length() == 2)
-                m_tags.insert(tagPair[0],tagPair[1]);
+            m_tags.clear();
+            QStringList tagPairs = m_description.split(';');
+            Q_FOREACH (QString tagString, tagPairs) {
+                QStringList tagPair = tagString.split('=');
+                if (tagPair.length() == 2)
+                    m_tags.insert(tagPair[0],tagPair[1]);
+            }
+
+            Q_EMIT timetableChanged();
+            Q_EMIT lastEventChanged();
+            Q_EMIT officeChanged();
+            Q_EMIT descriptionChanged();
+
+            m_control->disconnectFromDevice();
+            delete m_service;
+            m_service = 0;
+
+            setMessage("Loaded");
         }
-
-        Q_EMIT timetableChanged();
-        Q_EMIT lastEventChanged();
-        Q_EMIT officeChanged();
-        Q_EMIT descriptionChanged();
-
-        m_control->disconnectFromDevice();
-        delete m_service;
-        m_service = 0;
-
-        setMessage("Loaded");
 
         break;
     }
@@ -277,6 +287,20 @@ void UVFurniture::serviceError(QLowEnergyService::ServiceError e)
     default:
         qWarning() << "UV service error:" << e;
     }
+}
+
+void UVFurniture::confirmedCharacteristicWrite(const QLowEnergyCharacteristic &c,
+                                               const QByteArray &value)
+{
+    if (c.isValid() && value == m_lastevent.toLatin1()) {
+        setMessage("Loaded");
+        Q_EMIT lastEventChanged();
+        m_control->disconnectFromDevice();
+        delete m_service;
+        m_service = 0;
+    }
+    else
+        setMessage("ERROR");
 }
 
 void UVFurniture::confirmedDescriptorWrite(const QLowEnergyDescriptor &d,
@@ -313,7 +337,8 @@ QString UVFurniture::lastEvent() const
 void UVFurniture::setLastEvent(QString event)
 {
     m_lastevent = event;
-    Q_EMIT lastEventChanged();
+    serviceUpdateRequested = true;
+    connectToService(m_currentDevice.getDevice().address().toString());
 }
 
 QString UVFurniture::office() const
