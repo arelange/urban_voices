@@ -57,7 +57,7 @@ QDateTime CalendarEvent::last() const
             return QDateTime();
         else {
             QDateTime ret = now.addSecs(-1*(m_origin.secsTo(now)%m_mult_sec));
-            return ret.addSecs(-ret.timeZone().daylightTimeOffset(ret));
+            return ret.addSecs(ret.timeZone().daylightTimeOffset(ret));
         }
     }
 }
@@ -75,7 +75,7 @@ QDateTime CalendarEvent::next() const
             return QDateTime();
         else {
             QDateTime ret = now.addSecs(m_mult_sec-(m_origin.secsTo(now)%m_mult_sec));
-            return ret.addSecs(-ret.timeZone().daylightTimeOffset(ret));
+            return ret.addSecs(ret.timeZone().daylightTimeOffset(ret));
         }
     }
 }
