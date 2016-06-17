@@ -25,6 +25,7 @@
 
 import QtQuick 2.0
 import Calendar 1.0
+import "../"
 
 Rectangle {
     id: screenPostbox
@@ -167,7 +168,7 @@ Rectangle {
                 height:200
                 anchors.horizontalCenter: parent.horizontalCenter
 
-                source: "uv_busy.gif"
+                source: "../uv_busy.gif"
                 fillMode: Image.PreserveAspectFit
             }
 
@@ -189,7 +190,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         text: "Menu"
         onButtonClick: {
-            pageLoader.source="home.qml";
+            pageLoader.source="../home.qml";
         }
     }
 }

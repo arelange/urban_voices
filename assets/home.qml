@@ -133,7 +133,7 @@ Rectangle {
                 onPressed: { box.color= "#E09000"; box.height=110}
                 onClicked: {
                     uvFurniture.connectToService(modelData.deviceAddress);
-                    pageLoader.source="postbox.qml";
+                    pageLoader.source="tags/" + modelData.deviceName + ".qml";
                 }
             }
 
