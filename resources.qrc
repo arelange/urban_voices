@@ -6,5 +6,6 @@
         <file>assets/StationDelegate.qml</file>
         <file>assets/uv_busy.gif</file>
         <file>assets/tags/post_box.qml</file>
+        <file>assets/tags/recycling.qml</file>
     </qresource>
 </RCC>
