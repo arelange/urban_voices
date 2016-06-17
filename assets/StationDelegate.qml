@@ -155,7 +155,7 @@ Item {
 
         MapCircle {
             id: mapPoint
-            radius: 1000
+            radius: 5
             color: "#F0A000"
             border.color: "#301000"
             border.width: 2
