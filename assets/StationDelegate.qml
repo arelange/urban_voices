@@ -163,5 +163,15 @@ Item {
             opacity: 0.5
             center:contact.geo
         }
+
+        MapQuickItem {
+            id: mapLogo
+            anchorPoint: Qt.point(officeLogo.width/2, officeLogo.height/2)
+            coordinate: contact.geo
+            sourceItem: Image {
+                id: officeLogo
+                source: contact.logo
+            }
+        }
     }
 }
