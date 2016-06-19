@@ -126,7 +126,7 @@ private:
     QString m_timetable;
     QString m_lastevent;
     QString m_office;
-    QString m_descrription;
+    QString m_description;
 };
 
 #endif // UVFURNITURE_H
