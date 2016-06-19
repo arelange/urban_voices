@@ -78,6 +78,7 @@ public:
     QString lastEvent() const;
     QString office() const;
     QString description() const;
+    QString tag(QString key) const;
 
 public slots:
     void deviceSearch();
@@ -113,6 +114,7 @@ Q_SIGNALS:
     void lastEventChanged();
     void officeChanged();
     void descriptionChanged();
+    void tagsChanged();
 
 private:
     DeviceInfo m_currentDevice;
@@ -127,6 +129,7 @@ private:
     QString m_lastevent;
     QString m_office;
     QString m_description;
+    QHash<QString, QString> m_tags;
 };
 
 #endif // UVFURNITURE_H

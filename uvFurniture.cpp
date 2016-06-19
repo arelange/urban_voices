@@ -239,6 +239,15 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
         m_description = QString(m_service->characteristic(
                     QBluetoothUuid(QString("18afb6a7-5bb1-848b-c74b-4d874ac326fc"))).value());
 
+        // fill in tags
+        m_tags.clear();
+        QStringList tagPairs = m_description.split(';');
+        Q_FOREACH (QString& tagString, tagPairs) {
+            QStringList tagPair = tagString.split('=');
+            if (tagPair.length() == 2)
+                m_tags.insert(tagPair[0],tagPair[1]);
+        }
+
         Q_EMIT timetableChanged();
         Q_EMIT lastEventChanged();
         Q_EMIT officeChanged();
@@ -315,4 +324,9 @@ QString UVFurniture::office() const
 QString UVFurniture::description() const
 {
     return m_description;
+}
+
+QString UVFurniture::tag(QString key) const
+{
+    return m_tags.value(key);
 }
