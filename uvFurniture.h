@@ -65,6 +65,7 @@ class UVFurniture: public QObject
     Q_PROPERTY(QString timetable READ timetable NOTIFY timetableChanged)
     Q_PROPERTY(QString lastEvent READ lastEvent WRITE setLastEvent NOTIFY lastEventChanged)
     Q_PROPERTY(QString office READ office NOTIFY officeChanged)
+    Q_PROPERTY(QString description READ description NOTIFY descriptionChanged)
 
 public:
     UVFurniture();
@@ -76,6 +77,7 @@ public:
     void setLastEvent(QString lastEvent);
     QString lastEvent() const;
     QString office() const;
+    QString description() const;
 
 public slots:
     void deviceSearch();
@@ -110,6 +112,7 @@ Q_SIGNALS:
     void timetableChanged();
     void lastEventChanged();
     void officeChanged();
+    void descriptionChanged();
 
 private:
     DeviceInfo m_currentDevice;
@@ -123,6 +126,7 @@ private:
     QString m_timetable;
     QString m_lastevent;
     QString m_office;
+    QString m_descrription;
 };
 
 #endif // UVFURNITURE_H

@@ -236,10 +236,13 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
                     QBluetoothUuid(QString("3f33b12f-d4ee-e0b4-c345-f9cf5839f660"))).value());
         m_office = QString(m_service->characteristic(
                     QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
+        m_descrription = QString(m_service->characteristic(
+                    QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
 
         Q_EMIT timetableChanged();
         Q_EMIT lastEventChanged();
         Q_EMIT officeChanged();
+        Q_EMIT desciptionChanged();
 
         m_control->disconnectFromDevice();
         delete m_service;
@@ -307,4 +310,9 @@ void UVFurniture::setLastEvent(QString event)
 QString UVFurniture::office() const
 {
     return m_office;
+}
+
+QString UVFurniture::description() const
+{
+    return m_descrription;
 }
