@@ -237,7 +237,7 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
         m_office = QString(m_service->characteristic(
                     QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
         m_descrription = QString(m_service->characteristic(
-                    QBluetoothUuid(QString("b2f3a32c-8c17-9199-e84a-7a8820e74283"))).value());
+                    QBluetoothUuid(QString("18afb6a7-5bb1-848b-c74b-4d874ac326fc"))).value());
 
         Q_EMIT timetableChanged();
         Q_EMIT lastEventChanged();
