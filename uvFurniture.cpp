@@ -242,7 +242,7 @@ void UVFurniture::serviceStateChanged(QLowEnergyService::ServiceState s)
         // fill in tags
         m_tags.clear();
         QStringList tagPairs = m_description.split(';');
-        Q_FOREACH (QString& tagString, tagPairs) {
+        Q_FOREACH (QString tagString, tagPairs) {
             QStringList tagPair = tagString.split('=');
             if (tagPair.length() == 2)
                 m_tags.insert(tagPair[0],tagPair[1]);

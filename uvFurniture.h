@@ -78,7 +78,7 @@ public:
     QString lastEvent() const;
     QString office() const;
     QString description() const;
-    QString tag(QString key) const;
+    Q_INVOKABLE QString tag(QString key) const;
 
 public slots:
     void deviceSearch();
