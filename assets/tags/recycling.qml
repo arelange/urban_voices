@@ -112,7 +112,7 @@ Rectangle {
         buttonHeight: 0.1*parent.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        text: "recycling"
+        text: qsTr("recycling")
     }
 
     ListView {
@@ -131,7 +131,7 @@ Rectangle {
 
             Text {
                 id: materialText
-                text: key
+                text: qsTr(key)
                 width: parent.width * 2/3
                 x: 10
                 anchors.verticalCenter: parent.verticalCenter
@@ -139,7 +139,7 @@ Rectangle {
             Text {
                 anchors.left: materialText.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: value
+                text: qsTr(value)
             }
         }
     }
@@ -171,7 +171,7 @@ Rectangle {
                 id: infotext
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: background.bottom
-                text: uvFurniture.message
+                text: qsTr(uvFurniture.message)
                 color: "#8F8F8F"
             }
         }

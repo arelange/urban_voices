@@ -140,7 +140,7 @@ Rectangle {
             Text {
                 id: device
                 font.pixelSize: 30
-                text: modelData.deviceName
+                text: qsTr(modelData.deviceName)
                 anchors.top: parent.top
                 anchors.topMargin: 5
                 anchors.bottom: parent.bottom

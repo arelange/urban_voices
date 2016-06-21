@@ -44,7 +44,7 @@ Rectangle {
         buttonHeight: 0.1*parent.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        text: "Boîte aux lettres"
+        text: qsTr("post_box")
     }
     Calendar {
         id: timetable
@@ -176,7 +176,7 @@ Rectangle {
                 id: infotext
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: background.bottom
-                text: uvFurniture.message
+                text: qsTr(uvFurniture.message)
                 color: "#8F8F8F"
             }
         }
