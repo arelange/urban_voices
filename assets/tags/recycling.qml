@@ -31,26 +31,123 @@ Rectangle {
     id: recycling
     color: "#F8F8F8"
     property string message: uvFurniture.message
+
+    ListModel {
+        id: listMaterial
+
+        ListElement { value: "no"; key: "aerosol_cans"}
+        ListElement { value: "no"; key: "aluminium"}
+        ListElement { value: "no"; key: "batteries"}
+        ListElement { value: "no"; key: "car_batteries"}
+        ListElement { value: "no"; key: "beverage_cartons"}
+        ListElement { value: "no"; key: "bicycles"}
+        ListElement { value: "no"; key: "books"}
+        ListElement { value: "no"; key: "cans"}
+        ListElement { value: "no"; key: "cardboard"}
+        ListElement { value: "no"; key: "cartons"}
+        ListElement { value: "no"; key: "cds"}
+        ListElement { value: "no"; key: "chipboard"}
+        ListElement { value: "no"; key: "clothes"}
+        ListElement { value: "no"; key: "computers"}
+        ListElement { value: "no"; key: "cooking_oil"}
+        ListElement { value: "no"; key: "cork"}
+        ListElement { value: "no"; key: "drugs"}
+        ListElement { value: "no"; key: "engine_oil"}
+        ListElement { value: "no"; key: "fluorescent_tubes"}
+        ListElement { value: "no"; key: "foil"}
+        ListElement { value: "no"; key: "furniture"}
+        ListElement { value: "no"; key: "gas_bottles"}
+        ListElement { value: "no"; key: "glass"}
+        ListElement { value: "no"; key: "glass_bottles"}
+        ListElement { value: "no"; key: "green_waste"}
+        ListElement { value: "no"; key: "garden_waste"}
+        ListElement { value: "no"; key: "hazardous_waste"}
+        ListElement { value: "no"; key: "hardcore"}
+        ListElement { value: "no"; key: "low_energy_bulbs"}
+        ListElement { value: "no"; key: "magazines"}
+        ListElement { value: "no"; key: "metal"}
+        ListElement { value: "no"; key: "mobile_phones"}
+        ListElement { value: "no"; key: "newspaper"}
+        ListElement { value: "no"; key: "organic"}
+        ListElement { value: "no"; key: "paint"}
+        ListElement { value: "no"; key: "paper"}
+        ListElement { value: "no"; key: "paper_packaging"}
+        ListElement { value: "no"; key: "PET"}
+        ListElement { value: "no"; key: "plastic"}
+        ListElement { value: "no"; key: "plastic_bags"}
+        ListElement { value: "no"; key: "plastic_bottles"}
+        ListElement { value: "no"; key: "plastic_packaging"}
+        ListElement { value: "no"; key: "polyester"}
+        ListElement { value: "no"; key: "rubble"}
+        ListElement { value: "no"; key: "scrap_metal"}
+        ListElement { value: "no"; key: "sheet_metal"}
+        ListElement { value: "no"; key: "small_appliances"}
+        ListElement { value: "no"; key: "styrofoam"}
+        ListElement { value: "no"; key: "tyres"}
+        ListElement { value: "no"; key: "waste"}
+        ListElement { value: "no"; key: "white_goods"}
+        ListElement { value: "no"; key: "wood"}
+    }
+
+    function displayList() {
+        var value;
+        for (var i=0;i<listMaterial.count;i++) {
+            value = uvFurniture.tag("recycling:"+listMaterial.get(i).key);
+            listMaterial.setProperty(i,"value",value);
+        }
+    }
+
     onMessageChanged: {
-        if (uvFurniture.message == "Loaded")
+        if (uvFurniture.message == "Loaded") {
             loading.visible = false;
+            displayList();
+        }
         else
             loading.visible = true;
     }
 
     Button {
-        id: Title
+        id: title
         buttonWidth: parent.width
         buttonHeight: 0.1*parent.height
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        text: "Point de collecte pour recyclage"
+        text: "recycling"
+    }
+
+    ListView {
+        id: listMaterialView
+        model: listMaterial
+        width: parent.width
+        anchors.top: title.bottom
+        anchors.bottom: menu.top
+        delegate: Rectangle {
+            width: listMaterialView.width
+            height: materialText.height * 1.5
+            color: value ? "#48C47E" : "#FF7F5D"
+            border.color: "#F8F8F8"
+            border.width: 2
+            radius: 5
+
+            Text {
+                id: materialText
+                text: key
+                width: parent.width * 2/3
+                x: 10
+                anchors.verticalCenter: parent.verticalCenter
+            }
+            Text {
+                anchors.left: materialText.right
+                anchors.verticalCenter: parent.verticalCenter
+                text: value
+            }
+        }
     }
 
     Rectangle {
         id: loading
         width: parent.width
-        anchors.top: postboxTitle.bottom
+        anchors.top: title.bottom
         anchors.bottom: menu.top
         visible: true//false
         color: "#F8F8F8"
