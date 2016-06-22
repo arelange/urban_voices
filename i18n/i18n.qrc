@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>uvFurniture_de.qm</file>
+        <file>uvFurniture_en.qm</file>
+        <file>uvFurniture_fr.qm</file>
+        <file>uvFurniture_zh.qm</file>
+    </qresource>
+</RCC>

@@ -44,6 +44,7 @@
 #include <QQmlContext>
 #include <QGuiApplication>
 #include <QQuickView>
+#include <QTranslator>
 #include "contact.h"
 #include "calendar.h"
 #include "uvFurniture.h"
@@ -55,6 +56,11 @@ int main(int argc, char *argv[])
 
     qmlRegisterType<Contact>("Contact", 1, 0, "Contact");
     qmlRegisterType<Calendar>("Calendar", 1, 0, "Calendar");
+
+    /* register translator for i18n application */
+    QTranslator uvTranslator;
+    uvTranslator.load(":uvFurniture_" + QLocale::system().name());
+    app.installTranslator(&uvTranslator);
 
     UVFurniture uvFurniture;
     QQuickView *view = new QQuickView;

@@ -35,58 +35,53 @@ Rectangle {
     ListModel {
         id: listMaterial
 
-        ListElement { value: "no"; key: "aerosol_cans"}
-        ListElement { value: "no"; key: "aluminium"}
-        ListElement { value: "no"; key: "batteries"}
-        ListElement { value: "no"; key: "car_batteries"}
-        ListElement { value: "no"; key: "beverage_cartons"}
-        ListElement { value: "no"; key: "bicycles"}
-        ListElement { value: "no"; key: "books"}
-        ListElement { value: "no"; key: "cans"}
-        ListElement { value: "no"; key: "cardboard"}
-        ListElement { value: "no"; key: "cartons"}
-        ListElement { value: "no"; key: "cds"}
-        ListElement { value: "no"; key: "chipboard"}
-        ListElement { value: "no"; key: "clothes"}
-        ListElement { value: "no"; key: "computers"}
-        ListElement { value: "no"; key: "cooking_oil"}
-        ListElement { value: "no"; key: "cork"}
-        ListElement { value: "no"; key: "drugs"}
-        ListElement { value: "no"; key: "engine_oil"}
-        ListElement { value: "no"; key: "fluorescent_tubes"}
-        ListElement { value: "no"; key: "foil"}
-        ListElement { value: "no"; key: "furniture"}
-        ListElement { value: "no"; key: "gas_bottles"}
-        ListElement { value: "no"; key: "glass"}
-        ListElement { value: "no"; key: "glass_bottles"}
-        ListElement { value: "no"; key: "green_waste"}
-        ListElement { value: "no"; key: "garden_waste"}
-        ListElement { value: "no"; key: "hazardous_waste"}
-        ListElement { value: "no"; key: "hardcore"}
-        ListElement { value: "no"; key: "low_energy_bulbs"}
-        ListElement { value: "no"; key: "magazines"}
-        ListElement { value: "no"; key: "metal"}
-        ListElement { value: "no"; key: "mobile_phones"}
-        ListElement { value: "no"; key: "newspaper"}
-        ListElement { value: "no"; key: "organic"}
-        ListElement { value: "no"; key: "paint"}
-        ListElement { value: "no"; key: "paper"}
-        ListElement { value: "no"; key: "paper_packaging"}
-        ListElement { value: "no"; key: "PET"}
-        ListElement { value: "no"; key: "plastic"}
-        ListElement { value: "no"; key: "plastic_bags"}
-        ListElement { value: "no"; key: "plastic_bottles"}
-        ListElement { value: "no"; key: "plastic_packaging"}
-        ListElement { value: "no"; key: "polyester"}
-        ListElement { value: "no"; key: "rubble"}
-        ListElement { value: "no"; key: "scrap_metal"}
-        ListElement { value: "no"; key: "sheet_metal"}
-        ListElement { value: "no"; key: "small_appliances"}
-        ListElement { value: "no"; key: "styrofoam"}
-        ListElement { value: "no"; key: "tyres"}
-        ListElement { value: "no"; key: "waste"}
-        ListElement { value: "no"; key: "white_goods"}
-        ListElement { value: "no"; key: "wood"}
+        ListElement { value: "no"; key: QT_TR_NOOP("aerosol_cans")}
+        ListElement { value: "no"; key: QT_TR_NOOP("aluminium")}
+        ListElement { value: "no"; key: QT_TR_NOOP("batteries")}
+        ListElement { value: "no"; key: QT_TR_NOOP("car_batteries")}
+        ListElement { value: "no"; key: QT_TR_NOOP("beverage_cartons")}
+        ListElement { value: "no"; key: QT_TR_NOOP("bicycles")}
+        ListElement { value: "no"; key: QT_TR_NOOP("books")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cans")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cardboard")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cartons")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cds")}
+        ListElement { value: "no"; key: QT_TR_NOOP("clothes")}
+        ListElement { value: "no"; key: QT_TR_NOOP("computers")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cooking_oil")}
+        ListElement { value: "no"; key: QT_TR_NOOP("cork")}
+        ListElement { value: "no"; key: QT_TR_NOOP("drugs")}
+        ListElement { value: "no"; key: QT_TR_NOOP("engine_oil")}
+        ListElement { value: "no"; key: QT_TR_NOOP("fluorescent_tubes")}
+        ListElement { value: "no"; key: QT_TR_NOOP("foil")}
+        ListElement { value: "no"; key: QT_TR_NOOP("furniture")}
+        ListElement { value: "no"; key: QT_TR_NOOP("gas_bottles")}
+        ListElement { value: "no"; key: QT_TR_NOOP("glass")}
+        ListElement { value: "no"; key: QT_TR_NOOP("glass_bottles")}
+        ListElement { value: "no"; key: QT_TR_NOOP("green_waste")}
+        ListElement { value: "no"; key: QT_TR_NOOP("garden_waste")}
+        ListElement { value: "no"; key: QT_TR_NOOP("hazardous_waste")}
+        ListElement { value: "no"; key: QT_TR_NOOP("low_energy_bulbs")}
+        ListElement { value: "no"; key: QT_TR_NOOP("magazines")}
+        ListElement { value: "no"; key: QT_TR_NOOP("metal")}
+        ListElement { value: "no"; key: QT_TR_NOOP("mobile_phones")}
+        ListElement { value: "no"; key: QT_TR_NOOP("newspaper")}
+        ListElement { value: "no"; key: QT_TR_NOOP("organic")}
+        ListElement { value: "no"; key: QT_TR_NOOP("paint")}
+        ListElement { value: "no"; key: QT_TR_NOOP("paper")}
+        ListElement { value: "no"; key: QT_TR_NOOP("paper_packaging")}
+        ListElement { value: "no"; key: QT_TR_NOOP("plastic")}
+        ListElement { value: "no"; key: QT_TR_NOOP("plastic_bags")}
+        ListElement { value: "no"; key: QT_TR_NOOP("plastic_bottles")}
+        ListElement { value: "no"; key: QT_TR_NOOP("plastic_packaging")}
+        ListElement { value: "no"; key: QT_TR_NOOP("polyester")}
+        ListElement { value: "no"; key: QT_TR_NOOP("rubble")}
+        ListElement { value: "no"; key: QT_TR_NOOP("scrap_metal")}
+        ListElement { value: "no"; key: QT_TR_NOOP("sheet_metal")}
+        ListElement { value: "no"; key: QT_TR_NOOP("tyres")}
+        ListElement { value: "no"; key: QT_TR_NOOP("waste")}
+        ListElement { value: "no"; key: QT_TR_NOOP("white_goods")}
+        ListElement { value: "no"; key: QT_TR_NOOP("wood")}
     }
 
     function displayList() {
@@ -124,7 +119,7 @@ Rectangle {
         delegate: Rectangle {
             width: listMaterialView.width
             height: materialText.height * 1.5
-            color: value ? "#48C47E" : "#FF7F5D"
+            color: value === "yes" ? "#48C47E" : "#FF7F5D"
             border.color: "#F8F8F8"
             border.width: 2
             radius: 5
@@ -132,14 +127,15 @@ Rectangle {
             Text {
                 id: materialText
                 text: qsTr(key)
-                width: parent.width * 2/3
+                width: parent.width * 0.85
                 x: 10
                 anchors.verticalCenter: parent.verticalCenter
+                wrapMode: Text.Wrap
             }
             Text {
                 anchors.left: materialText.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: qsTr(value)
+                text: value === "yes" ? qsTr("yes") : qsTr("no")
             }
         }
     }
