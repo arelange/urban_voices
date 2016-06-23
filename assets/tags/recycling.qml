@@ -86,9 +86,14 @@ Rectangle {
 
     function displayList() {
         var value;
+        var yesIdx = 0;
         for (var i=0;i<listMaterial.count;i++) {
             value = uvFurniture.tag("recycling:"+listMaterial.get(i).key);
             listMaterial.setProperty(i,"value",value);
+            if (value === "yes") {
+                listMaterial.move(i,yesIdx,1);
+                yesIdx++;
+            }
         }
     }
 
