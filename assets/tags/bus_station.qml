@@ -32,8 +32,13 @@ Rectangle {
     color: "#F8F8F8"
     property string message: uvFurniture.message
     onMessageChanged: {
-        if (uvFurniture.message == "Loaded")
+        if (uvFurniture.message == "Loaded") {
             loading.visible = false;
+            tts.say(descriptionText.text);
+            tts.say(lasteventText.text);
+            tts.say(timerText.text);
+            tts.say(nextEventText.text);
+        }
         else
             loading.visible = true;
     }
