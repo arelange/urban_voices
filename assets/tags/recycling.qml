@@ -101,6 +101,12 @@ Rectangle {
         if (uvFurniture.message == "Loaded") {
             loading.visible = false;
             displayList();
+            if (uvFurniture.tag("recycling:paper") === "yes")
+                tts.say(qsTr("paper"));
+            if (uvFurniture.tag("recycling:metal") === "yes")
+                tts.say(qsTr("metal"));
+            if (uvFurniture.tag("recycling:plastic") === "yes")
+                tts.say(qsTr("plastic"));
         }
         else
             loading.visible = true;
