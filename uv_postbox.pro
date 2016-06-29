@@ -30,7 +30,6 @@ DISTFILES += \
     android/AndroidManifest.xml \
     android/res/values/libs.xml \
     assets/tags/bus_station.qml
-#    android/build.gradle \
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
