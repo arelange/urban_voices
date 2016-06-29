@@ -172,7 +172,6 @@ void UVFurniture::deviceConnected()
 
 void UVFurniture::deviceDisconnected()
 {
-    setMessage("Urban Voices service disconnected");
     qWarning() << "Remote device disconnected";
 }
 
