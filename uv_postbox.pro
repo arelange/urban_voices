@@ -45,3 +45,10 @@ lupdate_only {
 
 CODECFORSRC     = UTF-8
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Release/lib/release/ -lQt5TextToSpeech
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Debug/lib/debug/ -lQt5TextToSpeech
+else:unix:CONFIG(release, debug|release): LIBS += -L$$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Release/lib/ -lQt5TextToSpeech
+else:unix:CONFIG(debug, debug|release): LIBS += -L$$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Debug/lib/ -lQt5TextToSpeech
+
+INCLUDEPATH += $$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Release/include
+DEPENDPATH += $$PWD/../build-qtspeech-Desktop_Qt_$${QT_MAJOR_VERSION}_$${QT_MINOR_VERSION}_$${QT_PATCH_VERSION}_GCC_64bit-Release/include

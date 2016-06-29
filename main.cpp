@@ -48,6 +48,7 @@
 #include "contact.h"
 #include "calendar.h"
 #include "uvFurniture.h"
+#include <QtTextToSpeech/QTextToSpeech>
 
 int main(int argc, char *argv[])
 {
@@ -65,6 +66,10 @@ int main(int argc, char *argv[])
     UVFurniture uvFurniture;
     QQuickView *view = new QQuickView;
     view->rootContext()->setContextProperty("uvFurniture", &uvFurniture);
+
+    QTextToSpeech tts;
+    view->rootContext()->setContextProperty("tts", &tts);
+
     view->setSource(QUrl("qrc:/assets/main.qml"));
     view->setResizeMode(QQuickView::SizeRootObjectToView);
     view->show();
