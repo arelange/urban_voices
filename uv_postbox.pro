@@ -28,8 +28,7 @@ INSTALLS += target
 
 DISTFILES += \
     android/AndroidManifest.xml \
-    android/res/values/libs.xml \
-    assets/tags/bus_station.qml
+    android/res/values/libs.xml
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
