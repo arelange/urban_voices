@@ -130,6 +130,22 @@ QDateTime Calendar::last() const
     return last;
 }
 
+int Calendar::lastDuration() const
+{
+    QDateTime last;
+    int duration;
+    Q_FOREACH (CalendarEvent *event, events) {
+        QDateTime el = event->last();
+        if (el.isValid()) {
+            if (!last.isValid() || el > last) {
+                last = el;
+                duration = event->duration();
+            }
+        }
+    }
+    return duration;
+}
+
 QDateTime Calendar::next() const
 {
     QDateTime next;

@@ -35,15 +35,18 @@ class Calendar : public QObject
     Q_PROPERTY(QString ical WRITE import)
     Q_PROPERTY(QDateTime next READ next NOTIFY nextChanged)
     Q_PROPERTY(QDateTime last READ last NOTIFY lastChanged)
+    Q_PROPERTY(int lastDuration READ lastDuration NOTIFY lastDurationChanged)
 public:
     Calendar();
     void import(QString iCalendar);
     QDateTime last() const;
     QDateTime next() const;
+    int lastDuration() const;
 
 signals:
     void nextChanged(QDateTime);
     void lastChanged(QDateTime);
+    void lastDurationChanged(int);
 
 public slots:
 
