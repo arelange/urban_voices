@@ -64,8 +64,9 @@ Item {
         Image {
             source: contact.logo
             fillMode: Image.Pad
-            width: sourceSize.width + 20
-            height: sourceSize.height + 20
+            sourceSize.width: 100
+            width: implicitWidth + 20
+            height: implicitHeight + 20
         }
 
         Column {
@@ -171,6 +172,7 @@ Item {
             sourceItem: Image {
                 id: officeLogo
                 source: contact.logo
+                sourceSize.width: 100
             }
         }
     }
