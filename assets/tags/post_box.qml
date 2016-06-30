@@ -147,6 +147,7 @@ Rectangle {
         anchors.top: nextEventText.bottom
         anchors.bottom: menu.top
         width: parent.width
+        routing: true
     }
 
     Rectangle {

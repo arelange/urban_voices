@@ -32,15 +32,18 @@ Item {
     id: stationColumn
     width: parent.width
     property alias contact: contact
+    property bool routing: false
 
     Contact {
         id: contact
         vcard: uvFurniture.office
         onGeoChanged: {
-            routeQuery.clearWaypoints();
-            routeQuery.addWaypoint(QtPositioning.coordinate(43.61508,7.07130));
-            routeQuery.addWaypoint(QtPositioning.coordinate(43.61366,7.07981));
-            routeQuery.addWaypoint(contact.geo);
+            if (routing) {
+                routeQuery.clearWaypoints();
+                routeQuery.addWaypoint(QtPositioning.coordinate(43.61508,7.07130));
+                routeQuery.addWaypoint(QtPositioning.coordinate(43.61366,7.07981));
+                routeQuery.addWaypoint(contact.geo);
+            }
         }
     }
 
