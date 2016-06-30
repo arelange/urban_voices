@@ -79,3 +79,8 @@ QDateTime CalendarEvent::next() const
         }
     }
 }
+
+int CalendarEvent::duration() const
+{
+    return m_duration;
+}

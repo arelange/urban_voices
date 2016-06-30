@@ -35,6 +35,7 @@ public:
     CalendarEvent(QDateTime origin, int duration, QString summary, QList<QDateTime> exceptions, int mult_mo, int mult_sec);
     QDateTime last() const;
     QDateTime next() const;
+    int duration() const;
 
 signals:
 public slots:
