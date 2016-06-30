@@ -8,5 +8,6 @@
         <file>assets/tags/post_box.qml</file>
         <file>assets/tags/recycling.qml</file>
         <file>assets/tags/bus_station.qml</file>
+        <file>assets/tags/hackerspace.qml</file>
     </qresource>
 </RCC>
