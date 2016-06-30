@@ -85,9 +85,12 @@ void UVFurniture::addDevice(const QBluetoothDeviceInfo &device)
         qWarning() << "Discovered LE Device name: " << device.name() << " Address: "
                    << device.address().toString();
 //! [devicediscovery-3]
-        DeviceInfo *dev = new DeviceInfo(device);
-        m_devices.append(dev);
-        setMessage("Low Energy device found. Scanning for more...");
+        if (device.serviceUuids().contains(QBluetoothUuid(QString("8ceda3c9-b7b6-2592-704f-97c2700a9dae"))))
+        {
+            DeviceInfo *dev = new DeviceInfo(device);
+            m_devices.append(dev);
+            setMessage("Low Energy device found. Scanning for more...");
+        }
 //! [devicediscovery-4]
     }
     //...
