@@ -115,6 +115,10 @@ void Calendar::import(QString icalendar)
             }
         }
     } while (line.length()!=0);
+
+    Q_EMIT lastChanged(last());
+    Q_EMIT lastDurationChanged(lastDuration());
+    Q_EMIT nextChanged(next());
 }
 
 QDateTime Calendar::last() const
